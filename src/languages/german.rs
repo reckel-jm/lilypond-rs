@@ -225,17 +225,27 @@ mod test {
         let ly_note = LilyPondNote::new("r8").unwrap();
         let note_name = note_name_from_lilypond(&ly_note).unwrap();
         assert_eq!(note_name, NoteName::None);
+        
         let ly_note = LilyPondNote::new("fis").unwrap();
         let note_name = note_name_from_lilypond(&ly_note).unwrap();
         assert_eq!(note_name, NoteName::F);
+        
         let ly_note = LilyPondNote::new("ees").unwrap();
         let note_name = note_name_from_lilypond(&ly_note).unwrap();
         assert_eq!(note_name, NoteName::E);
+        
         let ly_note = LilyPondNote::new("gisis").unwrap();
         let note_name = note_name_from_lilypond(&ly_note).unwrap();
         assert_eq!(note_name, NoteName::G);
+        
         let ly_note = LilyPondNote::new("aeses").unwrap();
         let note_name = note_name_from_lilypond(&ly_note).unwrap();
         assert_eq!(note_name, NoteName::A);
+
+        let ly_note: LilyPondNote = LilyPondNote::new("b").unwrap();
+        let note_name: NoteName = note_name_from_lilypond(&ly_note).unwrap();
+        let accidental_type = accidental_from_lilypond(&ly_note).unwrap();
+        assert_eq!(note_name, NoteName::B);
+        assert_eq!(accidental_type, Accidental::Flat);
     }
 }
