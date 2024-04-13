@@ -171,6 +171,11 @@ pub enum NoteNameLanguage {
     /// - Note names: `c`, `d`, `e`, `f`, `g`, `a`, `b`
     /// - Accidentals: `is`, `es`, `isis`, `eses`
     Nederlands,
+    /// German note names and accidentals.
+    ///
+    /// - Note names: `c`, `d`, `e`, `f`, `g`, `a`, `h`, `c`
+    /// - Accidentals: `is`, `es`, `b`
+    German,
 }
 
 impl Default for NoteNameLanguage {

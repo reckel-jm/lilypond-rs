@@ -23,6 +23,7 @@ use lazy_static::lazy_static;
 mod common;
 mod english;
 mod nederlands;
+mod german;
 
 lazy_static! {
     /// The string to be used by LilyPond to select the language,
@@ -33,6 +34,7 @@ lazy_static! {
     pub static ref LANGUAGE_STR: &'static str = match *crate::NOTE_NAME_LANGUAGE {
         NoteNameLanguage::English => english::LANGUAGE_STR,
         NoteNameLanguage::Nederlands => nederlands::LANGUAGE_STR,
+        NoteNameLanguage::German => german::LANGUAGE_STR,
     };
     /// A regular expression string which is used to match and parse LilyPond
     /// notes.
@@ -46,6 +48,7 @@ lazy_static! {
     pub static ref NOTE_REGEX_STR: &'static str = match *crate::NOTE_NAME_LANGUAGE {
         NoteNameLanguage::English => english::NOTE_REGEX_STR,
         NoteNameLanguage::Nederlands => nederlands::NOTE_REGEX_STR,
+        NoteNameLanguage::German => german::NOTE_REGEX_STR,
     };
 }
 
@@ -55,6 +58,7 @@ pub fn lilypond_from_note(note: &Note) -> String {
     match *crate::NOTE_NAME_LANGUAGE {
         NoteNameLanguage::English => english::lilypond_from_note(note),
         NoteNameLanguage::Nederlands => nederlands::lilypond_from_note(note),
+        NoteNameLanguage::German => german::lilypond_from_note(note),
     }
 }
 
@@ -70,5 +74,6 @@ pub fn note_from_lilypond(note: &LilyPondNote) -> Result<Note, String> {
     match *crate::NOTE_NAME_LANGUAGE {
         NoteNameLanguage::English => english::note_from_lilypond(note),
         NoteNameLanguage::Nederlands => nederlands::note_from_lilypond(note),
+        NoteNameLanguage::German => german::note_from_lilypond(note),
     }
 }
