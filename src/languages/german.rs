@@ -207,15 +207,19 @@ mod test {
         let ly_note = LilyPondNote::new("r8").unwrap();
         let accidental_type = accidental_from_lilypond(&ly_note).unwrap();
         assert_eq!(accidental_type, Accidental::None);
+
         let ly_note = LilyPondNote::new("fis").unwrap();
         let accidental_type = accidental_from_lilypond(&ly_note).unwrap();
         assert_eq!(accidental_type, Accidental::Sharp);
+
         let ly_note = LilyPondNote::new("ees").unwrap();
         let accidental_type = accidental_from_lilypond(&ly_note).unwrap();
         assert_eq!(accidental_type, Accidental::Flat);
+
         let ly_note = LilyPondNote::new("gisis").unwrap();
         let accidental_type = accidental_from_lilypond(&ly_note).unwrap();
         assert_eq!(accidental_type, Accidental::DoubleSharp);
+        
         let ly_note = LilyPondNote::new("aeses").unwrap();
         let accidental_type = accidental_from_lilypond(&ly_note).unwrap();
         assert_eq!(accidental_type, Accidental::DoubleFlat);
